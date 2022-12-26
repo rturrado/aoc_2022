@@ -47,7 +47,7 @@ private:
     puzzles() = default;
 
     std::vector<function_type> data_{
-//        []() { day_1::main(std::cout); },  // calorie counting
+        []() { day_1::main(std::cout); },  // calorie counting
         []() { day_2::main(std::cout); },  // rock, paper, scissors
 /*
         []() { day_3::main(std::cout); },  // rucksack reorganization

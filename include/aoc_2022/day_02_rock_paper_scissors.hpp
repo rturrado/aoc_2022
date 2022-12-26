@@ -1,8 +1,6 @@
 #pragma once
 
-#include <fmt/core.h>
 #include <iosfwd>
-#include <sstream>
 
 
 namespace aoc_2022::day_2 {
