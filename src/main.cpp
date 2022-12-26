@@ -45,7 +45,7 @@ int main_impl(int argc, char** argv, std::istream& is, std::ostream& os) {
             fmt::print(os,
                 "What puzzle do you want to run? "
                 "Please enter a number between {} and {} ('quit' to exit): ",
-                1, puzzles.size());
+                2, puzzles.size());
 
             std::string input{};
             std::getline(is, input);
@@ -59,13 +59,13 @@ int main_impl(int argc, char** argv, std::istream& is, std::ostream& os) {
                 if (1 <= puzzle_number and puzzle_number <= puzzles.size()) {
                     fmt::print(os, "\n[PUZZLE {}]\n", puzzle_number);
                     puzzles.execute(puzzle_number);
-                    fmt::print("\n");
                 } else {
                     fmt::print(os, "\tError: number not within the limits\n");
                 }
             } else {
                 fmt::print(os, "\tError: invalid input\n");
             }
+            fmt::print("\n");
         }
     } catch (const std::exception& ex) {
         fmt::print("Error: {}\n", ex.what());

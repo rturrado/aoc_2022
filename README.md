@@ -24,10 +24,12 @@ $> sudo apt-get -qq -y install \
        git \
        ninja-build \
        pkg-config \
+       python3-pip
        tar \
        unzip \
        wget \
        zip
+$> sudo pip install conan
 $> sudo update-alternatives \
        --install /usr/bin/gcc gcc /usr/bin/gcc-12 100 \
        --slave /usr/bin/g++ g++ /usr/bin/g++-12 \
@@ -43,14 +45,18 @@ From a `terminal`:
 
 ### Build
 
+The example below builds the project for the `unixlike-gcc-debug-github`  Conan profile.
+
 From a `terminal`:
 ```bash
-conan install . -if=./cmake-build-unixlike-gcc-debug -pr=./conan/profiles/unixlike-gcc-debug-github --build=missing
+~/projects/aoc_2022/> conan install . -if=./cmake-build-unixlike-gcc-debug-github -pr=./conan/profiles/unixlike-gcc-debug-github --build=missing
+~/projects/aoc_2022/> cmake -S . -B ./cmake-build-unixlike-gcc-debug-github
+~/projects/aoc_2022/> cmake --build cmake-build-unixlike-gcc-debug-github --target all --config Release -j 12
 ```
 
 ### Run
 
 From a `terminal`:
 ```bash
-~/projects/aoc_2022> ./cmake-build-unixlike-gcc-debug/bin/aoc_2022 res
+~/projects/aoc_2022> ./cmake-build-unixlike-gcc-debug-github/bin/aoc_2022 res
 ```
