@@ -20,4 +20,8 @@ namespace aoc_2022 {
         env() = default;
         std::filesystem::path resource_folder_path_{};
     };
+
+    [[nodiscard]] inline auto get_puzzle_inputs_folder_path() {
+        return env::get_instance().get_resource_folder_path() / "puzzle_inputs";
+    }
 }  // namespace aoc_2022

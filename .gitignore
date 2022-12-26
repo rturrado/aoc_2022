@@ -1,4 +1,7 @@
 ﻿# Others
+/.idea
 /.vs
+/build
 /CMakeSettings.json
+/cmake-build-unixlike-gcc-debug-github
 /out

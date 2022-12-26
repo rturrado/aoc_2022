@@ -31,7 +31,6 @@ namespace aoc_2022::day_1 {
         }
         return ret;
     }
+
+    void main(std::ostream& os);
 }  // namespace aoc_2022::day_1
-
-
-void puzzle_1_main(std::ostream& os);

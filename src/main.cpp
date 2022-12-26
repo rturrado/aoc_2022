@@ -59,6 +59,7 @@ int main_impl(int argc, char** argv, std::istream& is, std::ostream& os) {
                 if (1 <= puzzle_number and puzzle_number <= puzzles.size()) {
                     fmt::print(os, "\n[PUZZLE {}]\n", puzzle_number);
                     puzzles.execute(puzzle_number);
+                    fmt::print("\n");
                 } else {
                     fmt::print(os, "\tError: number not within the limits\n");
                 }

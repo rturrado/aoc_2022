@@ -7,4 +7,7 @@ project("aoc_2022"
     LANGUAGES C CXX
 )
 
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 add_subdirectory(src)

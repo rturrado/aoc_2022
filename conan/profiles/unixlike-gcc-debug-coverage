@@ -1,0 +1,11 @@
+include(unixlike-gcc-debug)
+
+[settings]
+
+[options]
+
+[build_requires]
+
+[env]
+CODE_COVERAGE=TRUE
+

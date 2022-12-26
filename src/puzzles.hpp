@@ -24,6 +24,8 @@
 #undef NDEBUG
 #include <cassert>
 
+using namespace aoc_2022;
+
 
 class puzzles {
     using function_type = std::function<void()>;
@@ -45,22 +47,22 @@ private:
     puzzles() = default;
 
     std::vector<function_type> data_{
-        []() { puzzle_1_main(std::cout); },  // calorie counting
+        []() { day_1::main(std::cout); },  // calorie counting
 /*
-        []() { puzzle_2_main(std::cout); },  // rock, paper, scissors
-        []() { puzzle_3_main(std::cout); },  // rucksack reorganization
-        []() { puzzle_4_main(std::cout); },  // camp cleanup
-        []() { puzzle_5_main(std::cout); },  // supply stacks
-        []() { puzzle_6_main(std::cout); },  // tuning trouble
-        []() { puzzle_7_main(std::cout); },  // no space left on device
-        []() { puzzle_8_main(std::cout); },  // treetop tree house
-        []() { puzzle_9_main(std::cout); },  // rope bridge
-        []() { puzzle_10_main(std::cout); },  // cathode-ray tube
-        []() { puzzle_11_main(std::cout); },  // monkey in the middle
-        []() { puzzle_12_main(std::cout); },  // hill climbing algorithm
-        []() { puzzle_13_main(std::cout); },  // distress signal
-        []() { puzzle_14_main(std::cout); },  // regolith reservoir
-        []() { puzzle_15_main(std::cout); },  // beacon exclusion zone
+        []() { day_2::main(std::cout); },  // rock, paper, scissors
+        []() { day_3::main(std::cout); },  // rucksack reorganization
+        []() { day_4::main(std::cout); },  // camp cleanup
+        []() { day_5::main(std::cout); },  // supply stacks
+        []() { day_6::main(std::cout); },  // tuning trouble
+        []() { day_7::main(std::cout); },  // no space left on device
+        []() { day_8::main(std::cout); },  // treetop tree house
+        []() { day_9::main(std::cout); },  // rope bridge
+        []() { day_10::main(std::cout); },  // cathode-ray tube
+        []() { day_11::main(std::cout); },  // monkey in the middle
+        []() { day_12::main(std::cout); },  // hill climbing algorithm
+        []() { day_13::main(std::cout); },  // distress signal
+        []() { day_14::main(std::cout); },  // regolith reservoir
+        []() { day_15::main(std::cout); },  // beacon exclusion zone
 */
     };
 };

@@ -3,21 +3,11 @@ set(include_dir ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME})
 
 # Packages
 include(FetchContent)
-FetchContent_Declare(fmt
-    GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-    GIT_TAG "a33701196adfad74917046096bf5a2aa0ab0bb50"
-)
-FetchContent_Declare(range-v3
-    GIT_REPOSITORY https://github.com/ericniebler/range-v3.git
-    GIT_TAG "0fa54d7de5dc00655e38a08e87cda61f7aa6d5b9"
-)
 FetchContent_Declare(rtc
     GIT_REPOSITORY https://github.com/rturrado/rtc.git
     GIT_TAG "d3c6dc594a3a7c2f3d7939bb40c17cc47f881453"
 )
 FetchContent_MakeAvailable(
-    fmt
-    range-v3
     rtc
 )
 
@@ -52,8 +42,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23)
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    fmt
-    range-v3
+    ${CONAN_LIBS}
     rtc
 )
 

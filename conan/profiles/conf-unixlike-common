@@ -1,0 +1,13 @@
+include(conf-common)
+
+[settings]
+
+[options]
+
+[build_requires]
+
+[env]
+CMAKE_C_COMPILER=gcc
+CMAKE_CXX_COMPILER=g++
+BUILD_TZ_LIB=true
+

@@ -1,0 +1,11 @@
+include(unixlike-gcc-release)
+
+[settings]
+
+[options]
+
+[build_requires]
+
+[env]
+AOC_2022_BUILD_TESTS=true
+
