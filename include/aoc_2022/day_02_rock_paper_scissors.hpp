@@ -1,9 +1,16 @@
 #pragma once
 
 #include <iosfwd>
+#include <string_view>
 
 
 namespace aoc_2022::day_2 {
+    [[maybe_unused]] inline static std::string_view puzzle_example_sv{
+        "A Y\n"
+        "B X\n"
+        "C Z\n"
+    };
+
     [[nodiscard]] inline int calculate_round_score(int elf, int me) {
         int ret{};
         ret += (me + 1);  // rock (+1), paper (+2), scissors (+3)
@@ -30,5 +37,7 @@ namespace aoc_2022::day_2 {
         return ret;
     }
 
+    int part_1(std::istream& puzzle_input_is);
+    int part_2(std::istream& puzzle_input_is);
     void main(std::ostream& os);
 }  // namespace aoc_2022::day_2

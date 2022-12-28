@@ -49,9 +49,8 @@ The example below builds the project for the `unixlike-gcc-debug-github`  Conan 
 
 From a `terminal`:
 ```bash
-~/projects/aoc_2022/> conan install . -if=./cmake-build-unixlike-gcc-debug-github -pr=./conan/profiles/unixlike-gcc-debug-github --build=missing
-~/projects/aoc_2022/> cmake -S . -B ./cmake-build-unixlike-gcc-debug-github
-~/projects/aoc_2022/> cmake --build cmake-build-unixlike-gcc-debug-github --target all --config Release -j 12
+~/projects/aoc_2022/> conan install . -if=cmake-build-unixlike-gcc-debug-github -pr=conan/profiles/unixlike-gcc-debug-github -b=missing
+~/projects/aoc_2022/> conan build . -c -b -bf=cmake-build-unixlike-gcc-debug-github
 ```
 
 ### Run

@@ -11,3 +11,9 @@ include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
 add_subdirectory(src)
+
+if(AOC_2022_BUILD_TESTS)
+    include(CTest)
+    enable_testing()
+    add_subdirectory(test)
+endif()

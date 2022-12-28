@@ -7,4 +7,4 @@ include(unixlike-gcc-debug)
 [build_requires]
 
 [env]
-
+ASAN_ENABLED=True

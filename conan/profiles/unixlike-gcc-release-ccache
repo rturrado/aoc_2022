@@ -9,4 +9,3 @@ include(unixlike-gcc-release)
 [env]
 CMAKE_C_COMPILER_LAUNCHER=ccache
 CMAKE_CXX_COMPILER_LAUNCHER=ccache
-
