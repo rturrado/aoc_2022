@@ -50,7 +50,6 @@ private:
         []() { day_1::main(std::cout); },  // calorie counting
         []() { day_2::main(std::cout); },  // rock, paper, scissors
         []() { day_3::main(std::cout); },  // rucksack reorganization
-/*
         []() { day_4::main(std::cout); },  // camp cleanup
         []() { day_5::main(std::cout); },  // supply stacks
         []() { day_6::main(std::cout); },  // tuning trouble
@@ -63,6 +62,5 @@ private:
         []() { day_13::main(std::cout); },  // distress signal
         []() { day_14::main(std::cout); },  // regolith reservoir
         []() { day_15::main(std::cout); },  // beacon exclusion zone
-*/
     };
 };

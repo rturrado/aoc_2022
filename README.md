@@ -1,4 +1,5 @@
 # Advent of Code 2022 (C++)
+
 My solutions to the Advent of Code 2022 (C++).
 
 ## Installation
@@ -57,5 +58,18 @@ From a `terminal`:
 
 From a `terminal`:
 ```bash
-~/projects/aoc_2022> ./cmake-build-unixlike-gcc-debug-github/bin/aoc_2022 res
+~/projects/aoc_2022> ./cmake-build-unixlike-gcc-debug-github/bin/aoc_2022
+```
+
+### Tests
+
+Tests are built with the following Conan profiles:
+- `unixlike-gcc-debug-tests`.
+- `unixlike-gcc-debug-github`.
+- `unixlike-gcc-release-tests`.
+- `unixlike-gcc-release-github`.
+
+From a `terminal`:
+```bash
+~/projects/aoc_2022> ./cmake-build-unixlike-gcc-debug-github/bin/aoc_2022_test
 ```

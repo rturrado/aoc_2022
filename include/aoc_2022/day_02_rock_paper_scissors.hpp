@@ -5,7 +5,7 @@
 
 
 namespace aoc_2022::day_2 {
-    [[maybe_unused]] inline static std::string_view puzzle_example_sv{
+    inline static std::string_view puzzle_example_sv{
         "A Y\n"
         "B X\n"
         "C Z\n"

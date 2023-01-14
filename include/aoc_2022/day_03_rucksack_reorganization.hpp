@@ -2,11 +2,10 @@
 
 #include <iosfwd>
 #include <string_view>
-#include <vector>
 
 
 namespace aoc_2022::day_3 {
-    [[maybe_unused]] inline static std::string_view puzzle_example_sv{
+    inline static std::string_view puzzle_example_sv{
         "vJrwpWtwJgWrhcsFMMfFFhFp\n"
         "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\n"
         "PmmdzqPrVvPwwTWBwg\n"
