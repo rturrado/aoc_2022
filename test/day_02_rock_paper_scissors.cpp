@@ -2,7 +2,6 @@
 
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-#include <sstream>  // istringstream
 
 using namespace aoc_2022::day_2;
 

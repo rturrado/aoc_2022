@@ -8,7 +8,6 @@
 #include <iterator>  // inserter
 #include <range/v3/all.hpp>
 #include <set>
-#include <string>
 #include <utility>  // pair
 #include <vector>
 
