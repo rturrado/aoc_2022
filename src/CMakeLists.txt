@@ -13,8 +13,7 @@ FetchContent_MakeAvailable(
 
 
 # Sources
-set(app_sources
-    "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
+set(lib_sources
     "${CMAKE_CURRENT_SOURCE_DIR}/day_01_calorie_counting.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/day_02_rock_paper_scissors.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/day_03_rucksack_reorganization.cpp"
@@ -30,21 +29,45 @@ set(app_sources
     "${CMAKE_CURRENT_SOURCE_DIR}/day_13_distress_signal.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/day_14_regolith_reservoir.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/day_15_beacon_exclusion_zone.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/puzzles.hpp"
 )
+set(app_sources
+    "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/puzzles.hpp"
+    )
+list(APPEND app_sources ${lib_sources})
 
 
-# Executables
+# Main library
+add_library(lib_${PROJECT_NAME} ${lib_sources})
+target_include_directories(lib_${PROJECT_NAME} PUBLIC
+    "$<BUILD_INTERFACE:${include_dir}>"
+    "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
+)
+set_target_properties(lib_${PROJECT_NAME} PROPERTIES
+    OUTPUT_NAME ${PROJECT_NAME}-${PROJECT_VERSION_MAJOR}_${PROJECT_VERSION_MINOR}
+)
+target_compile_features(lib_${PROJECT_NAME} PRIVATE cxx_std_23)
+target_link_libraries(lib_${PROJECT_NAME} PUBLIC
+    ${CONAN_LIBS}
+    rtc
+)
+if(CODE_COVERAGE)
+    if(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
+        target_compile_options(lib_${PROJECT_NAME} PRIVATE -fprofile-arcs -ftest-coverage)
+        target_link_libraries(lib_${PROJECT_NAME} PRIVATE gcov)
+        target_link_options(lib_${PROJECT_NAME} PRIVATE -fprofile-arcs -ftest-coverage)
+    endif()
+endif()
+
+
+# Main executable
 add_executable(${PROJECT_NAME} ${app_sources})
 target_include_directories(${PROJECT_NAME} PUBLIC
     "$<BUILD_INTERFACE:${include_dir}>"
     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23)
-target_link_libraries(${PROJECT_NAME} PRIVATE
-    ${CONAN_LIBS}
-    rtc
-)
+target_link_libraries(${PROJECT_NAME} PRIVATE lib_${PROJECT_NAME})
 
 
 # Target compile options
@@ -55,6 +78,7 @@ if(MSVC)
         /D_UNICODE /DUNICODE
         /diagnostics:column /EHsc /FC /fp:precise /Gd /GS /MP /sdl /utf-8 /Zc:inline
     )
+    target_compile_options(lib_${PROJECT_NAME} PRIVATE ${msvc_compile_options})
     target_compile_options(${PROJECT_NAME} PRIVATE ${msvc_compile_options})
 elseif(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
     set(unixlike_compile_options
@@ -63,6 +87,7 @@ elseif(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" OR ${CMAKE_CXX_COMPILER_ID} STR
         -Wno-deprecated
         # -Wconversion -Wsign-conversion -Wno-sign-conversion  # do not sort flags; order matters
     )
+    target_compile_options(lib_${PROJECT_NAME} PRIVATE ${unixlike_compile_options})
     target_compile_options(${PROJECT_NAME} PRIVATE ${unixlike_compile_options})
 endif()
 if(CODE_COVERAGE)

@@ -3,7 +3,6 @@
 
 #include <filesystem>
 #include <fmt/ostream.h>
-#include <fstream>
 
 namespace fs = std::filesystem;
 
@@ -15,7 +14,7 @@ namespace aoc_2022::day_1 {
     }
 
 
-    void part_2(std::ostream& os1, const fs::path& puzzle_input) {
+    void part_2(std::ostream& os, const fs::path& puzzle_input) {
         std::ifstream ifs{ puzzle_input };
         fmt::print(os, "Unimplemented\n");
     }

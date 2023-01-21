@@ -1,4 +1,5 @@
 # Advent of Code 2022 (C++)
+
 My solutions to the Advent of Code 2022 (C++).
 
 ## Installation
@@ -49,14 +50,26 @@ The example below builds the project for the `unixlike-gcc-debug-github`  Conan 
 
 From a `terminal`:
 ```bash
-~/projects/aoc_2022/> conan install . -if=./cmake-build-unixlike-gcc-debug-github -pr=./conan/profiles/unixlike-gcc-debug-github --build=missing
-~/projects/aoc_2022/> cmake -S . -B ./cmake-build-unixlike-gcc-debug-github
-~/projects/aoc_2022/> cmake --build cmake-build-unixlike-gcc-debug-github --target all --config Release -j 12
+~/projects/aoc_2022/> conan install . -if=cmake-build-unixlike-gcc-debug-github -pr=conan/profiles/unixlike-gcc-debug-github -b=missing
+~/projects/aoc_2022/> conan build . -c -b -bf=cmake-build-unixlike-gcc-debug-github
 ```
 
 ### Run
 
 From a `terminal`:
 ```bash
-~/projects/aoc_2022> ./cmake-build-unixlike-gcc-debug-github/bin/aoc_2022 res
+~/projects/aoc_2022> ./cmake-build-unixlike-gcc-debug-github/bin/aoc_2022
+```
+
+### Tests
+
+Tests are built with the following Conan profiles:
+- `unixlike-gcc-debug-tests`.
+- `unixlike-gcc-debug-github`.
+- `unixlike-gcc-release-tests`.
+- `unixlike-gcc-release-github`.
+
+From a `terminal`:
+```bash
+~/projects/aoc_2022> ./cmake-build-unixlike-gcc-debug-github/bin/aoc_2022_test
 ```

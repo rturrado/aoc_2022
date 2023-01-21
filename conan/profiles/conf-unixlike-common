@@ -7,7 +7,7 @@ arch=x86_64
 arch_build=x86_64
 compiler=gcc
 compiler.version=12
-compiler.libcxx=libstdc++
+compiler.libcxx=libstdc++11
 compiler.cppstd=23
 
 [options]
@@ -17,5 +17,3 @@ compiler.cppstd=23
 [env]
 CMAKE_C_COMPILER=gcc
 CMAKE_CXX_COMPILER=g++
-BUILD_TZ_LIB=true
-

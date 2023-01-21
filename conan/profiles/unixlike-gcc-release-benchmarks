@@ -7,5 +7,4 @@ include(unixlike-gcc-release)
 [build_requires]
 
 [env]
-AOC_2022_BUILD_BENCHMARKS=true
-
+AOC_2022_BUILD_BENCHMARKS=True
