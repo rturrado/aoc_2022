@@ -44,8 +44,8 @@ namespace aoc_2022::day_8 {
     size_t part_1(std::istream& puzzle_input_is) {
         forest_t rows{ std::istream_iterator<std::string>{ puzzle_input_is }, {} };
         forest_t cols(rows[0].size(), trees_t(rows.size(), '0'));
-        auto&& row_indices{ ranges::views::iota(0uz, rows.size()) };
-        auto&& col_indices{ ranges::views::iota(0uz, rows[0].size()) };
+        auto&& row_indices{ ranges::views::iota(static_cast<size_t>(0), rows.size()) };
+        auto&& col_indices{ ranges::views::iota(static_cast<size_t>(0), rows[0].size()) };
         ranges::for_each(ranges::views::cartesian_product(row_indices, col_indices),
             [&rows, &cols](const std::tuple<size_t, size_t>& t) {
                 auto [i, j]{ t };
@@ -65,8 +65,8 @@ namespace aoc_2022::day_8 {
     size_t part_2(std::istream& puzzle_input_is) {
         forest_t rows{ std::istream_iterator<std::string>{ puzzle_input_is }, {} };
         forest_t cols(rows[0].size(), trees_t(rows.size(), '0'));
-        auto&& row_indices{ ranges::views::iota(0uz, rows.size()) };
-        auto&& col_indices{ ranges::views::iota(0uz, rows[0].size()) };
+        auto&& row_indices{ ranges::views::iota(static_cast<size_t>(0), rows.size()) };
+        auto&& col_indices{ ranges::views::iota(static_cast<size_t>(0), rows[0].size()) };
         ranges::for_each(ranges::views::cartesian_product(row_indices, col_indices),
             [&rows, &cols](const std::tuple<size_t, size_t>& t) {
                 auto [i, j]{ t };

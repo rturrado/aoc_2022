@@ -1,17 +1,6 @@
 set(include_dir ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME})
 
 
-# Packages
-include(FetchContent)
-FetchContent_Declare(rtc
-    GIT_REPOSITORY https://github.com/rturrado/rtc.git
-    GIT_TAG "d3c6dc594a3a7c2f3d7939bb40c17cc47f881453"
-)
-FetchContent_MakeAvailable(
-    rtc
-)
-
-
 # Sources
 set(lib_sources
     "${CMAKE_CURRENT_SOURCE_DIR}/day_01_calorie_counting.cpp"
@@ -47,10 +36,7 @@ set_target_properties(lib_${PROJECT_NAME} PROPERTIES
     OUTPUT_NAME ${PROJECT_NAME}-${PROJECT_VERSION_MAJOR}_${PROJECT_VERSION_MINOR}
 )
 target_compile_features(lib_${PROJECT_NAME} PRIVATE cxx_std_20)
-target_link_libraries(lib_${PROJECT_NAME} PUBLIC
-    ${CONAN_LIBS}
-    rtc
-)
+target_link_libraries(lib_${PROJECT_NAME} PUBLIC ${CONAN_LIBS})
 if(CODE_COVERAGE)
     if(${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" OR ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
         target_compile_options(lib_${PROJECT_NAME} PRIVATE -fprofile-arcs -ftest-coverage)
