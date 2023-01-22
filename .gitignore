@@ -4,5 +4,7 @@
 /build
 /CMakeSettings.json
 /cmake-build-unixlike-gcc-debug-github
+/cmake-build-unixlike-gcc-debug-tests
 /cmake-build-unixlike-gcc-release-github
+/cmake-build-unixlike-gcc-release-tests
 /out
