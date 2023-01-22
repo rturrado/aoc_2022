@@ -1,34 +1,50 @@
-name: Build
+name: main CI
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ opened, synchronize, reopened ]
+
+env:
+    BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory  # Directory where build-wrapper output will be placed
+
 jobs:
-  build:
-    name: Build
+  unixlike-gcc-debug-github:
     runs-on: ubuntu-latest
-    env:
-      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper output will be placed
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Install gcc-12 and g++-12, and linux-headers
+        run: |
+          sudo apt update && sudo apt upgrade
+          sudo apt install gcc-12 g++-12 linux-headers-$(uname -r)
+          sudo update-alternatives \
+              --install /usr/bin/gcc gcc /usr/bin/gcc-12 100 \
+              --slave /usr/bin/g++ g++ /usr/bin/g++-12 \
+              --slave /usr/bin/gcov gcov /usr/bin/gcov-12
+        shell: bash
+
+      - name: Get latest CMake
+        uses: lukka/get-cmake@latest
+
       - name: Install Conan
         id: conan
         uses: turtlebrowser/get-conan@main
       - name: Conan version
         run: echo "${{ steps.conan.outputs.version }}"
+
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
       - name: Install sonar-scanner and build-wrapper
         uses: SonarSource/sonarcloud-github-c-cpp@v1
       - name: Run build-wrapper
         run: |
-          conan install . -if=cmake-build-unixlike-gcc-debug-github -pr=conan/profiles/unixlike-gcc-debug-github -b=missing
-          build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} conan build . -c -b -bf=cmake-build-unixlike-gcc-debug-github
+          conan install . -if=cmake-build-unixlike-gcc-debug-tests -pr=conan/profiles/unixlike-gcc-debug-tests -b=missing
+          build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} conan build . -c -b -bf=cmake-build-unixlike-gcc-debug-tests
       - name: Run sonar-scanner
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }} # Put the name of your token here
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}  # Put the name of your token here
         run: |
           sonar-scanner --define sonar.cfamily.build-wrapper-output="${{ env.BUILD_WRAPPER_OUT_DIR }}"
