@@ -14,14 +14,14 @@ namespace fs = std::filesystem;
 
 namespace aoc_2022::day_8 {
     auto tree_is_tallest_from(auto&& trees, const char tree) {
-        return not std::ranges::any_of(trees, [&tree](char t) { return t >= tree; });
+        return !std::ranges::any_of(trees, [&tree](char t) { return t >= tree; });
     }
     auto tree_is_visible(const forest_t& rows, const forest_t& cols, size_t i, size_t j) {
         auto current_tree{ rows[i][j] };
         return tree_is_tallest_from(rows[i] | ranges::views::take_exactly(j), current_tree)  // left
-            or tree_is_tallest_from(rows[i] | ranges::views::drop_exactly(j + 1), current_tree)  // right
-            or tree_is_tallest_from(cols[j] | ranges::views::take_exactly(i), current_tree)  // top
-            or tree_is_tallest_from(cols[j] | ranges::views::drop_exactly(i + 1), current_tree);  // bottom
+            || tree_is_tallest_from(rows[i] | ranges::views::drop_exactly(j + 1), current_tree)  // right
+            || tree_is_tallest_from(cols[j] | ranges::views::take_exactly(i), current_tree)  // top
+            || tree_is_tallest_from(cols[j] | ranges::views::drop_exactly(i + 1), current_tree);  // bottom
     }
     auto distance_to_not_shorter_tree(auto&& trees, const char tree) {
         auto it{ std::ranges::find_if(trees, [&tree](char t) { return t >= tree; }) };

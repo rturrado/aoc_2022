@@ -64,13 +64,11 @@ namespace aoc_2022::day_15 {
             auto detected_area_intervals{ get_sensor_range_intervals(m, y) };
             // There can only be one or two intervals
             if (not detected_area_intervals.contain(distress_area_interval)) {
-                std::int64_t x{};
-                if (detected_area_intervals.data.size() == 1) {
-                    if (detected_area_intervals.data[0].start <= 0) {
-                        x = distress_area_width;
-                    }
-                } else {
-                    x = detected_area_intervals.data[0].end;
+                // Initialize x considering there are two intervals
+                std::int64_t x{ detected_area_intervals.data[0].end };
+                // Update x in case there is only one
+                if ((detected_area_intervals.data.size() == 1) && (detected_area_intervals.data[0].start <= 0)) {
+                    x = distress_area_width;
                 }
                 tuning_frequency = x * 4'000'000 + y;
                 break;

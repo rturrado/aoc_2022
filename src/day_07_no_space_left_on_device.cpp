@@ -23,7 +23,7 @@ namespace aoc_2022::day_7 {
         };
         auto parse_output_line = [&dirs, &current_dir, &current_path, &trim_right](std::string line) {
             trim_right(line);
-            if ((line == "$ ls") or line.starts_with("dir")) {
+            if ((line == "$ ls") || line.starts_with("dir")) {
                 return;
             } else if (line == "$ cd ..") {
                 auto subdir_size{ dirs[current_path()] };

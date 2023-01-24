@@ -16,7 +16,7 @@ namespace aoc_2022::day_2 {
         ret += (me + 1);  // rock (+1), paper (+2), scissors (+3)
         if (me == elf) {  // draw
             ret += 3;
-        } else if ((me == elf + 1) or (me == elf - 2)) {  // win
+        } else if ((me == elf + 1) || (me == elf - 2)) {  // win
             ret += 6;
         }
         // ret += 0;  // loss

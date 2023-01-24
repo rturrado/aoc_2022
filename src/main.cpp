@@ -56,7 +56,7 @@ int main_impl(int argc, char** argv, std::istream& is, std::ostream& os) {
             size_t puzzle_number{};
             auto [ptr, ec]{ std::from_chars(input.data(), input.data() + input.size(), puzzle_number) };
             if (ec == std::errc{}) {
-                if (1 <= puzzle_number and puzzle_number <= puzzles.size()) {
+                if (1 <= puzzle_number && puzzle_number <= puzzles.size()) {
                     fmt::print(os, "\n[PUZZLE {}]\n", puzzle_number);
                     puzzles.execute(puzzle_number);
                     fmt::print("\n");

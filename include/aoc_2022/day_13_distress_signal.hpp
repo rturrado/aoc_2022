@@ -19,38 +19,38 @@ namespace aoc_2022::day_13 {
 
             [[nodiscard]]  bool operator==(const packet_element& other) const noexcept {
                 // Both ints
-                if (std::holds_alternative<int_t>(data) and std::holds_alternative<int_t>(other.data)) {
+                if (std::holds_alternative<int_t>(data) && std::holds_alternative<int_t>(other.data)) {
                     return std::get<int_t>(data) == std::get<int_t>(other.data);
                 }
                 // Both lists
-                if (std::holds_alternative<list_of_elements_t>(data) and std::holds_alternative<list_of_elements_t>(other.data)) {
+                if (std::holds_alternative<list_of_elements_t>(data) && std::holds_alternative<list_of_elements_t>(other.data)) {
                     return std::get<list_of_elements_t>(data) == std::get<list_of_elements_t>(other.data);
                 }
                 // Int and list
-                if (std::holds_alternative<int_t>(data) and not std::holds_alternative<int_t>(other.data)) {
+                if (std::holds_alternative<int_t>(data) && !std::holds_alternative<int_t>(other.data)) {
                     return packet_element{ list_of_elements_t{ { std::get<int_t>(data) } } } == other;
                 }
                 // List and int
-                if (not std::holds_alternative<int_t>(data) and std::holds_alternative<int_t>(other.data)) {
+                if (not std::holds_alternative<int_t>(data) && std::holds_alternative<int_t>(other.data)) {
                     return *this == packet_element{ list_of_elements_t{ { std::get<int_t>(other.data) } } };
                 }
                 return false;
             }
             [[nodiscard]] bool operator<(const packet_element& other) const noexcept {
                 // Both ints
-                if (std::holds_alternative<int_t>(data) and std::holds_alternative<int_t>(other.data)) {
+                if (std::holds_alternative<int_t>(data) && std::holds_alternative<int_t>(other.data)) {
                     return std::get<int_t>(data) < std::get<int_t>(other.data);
                 }
                 // Both lists
-                if (std::holds_alternative<list_of_elements_t>(data) and std::holds_alternative<list_of_elements_t>(other.data)) {
+                if (std::holds_alternative<list_of_elements_t>(data) && std::holds_alternative<list_of_elements_t>(other.data)) {
                     return std::get<list_of_elements_t>(data) < std::get<list_of_elements_t>(other.data);
                 }
                 // Int and list
-                if (std::holds_alternative<int_t>(data) and not std::holds_alternative<int_t>(other.data)) {
+                if (std::holds_alternative<int_t>(data) && !std::holds_alternative<int_t>(other.data)) {
                     return packet_element{ list_of_elements_t{ { std::get<int_t>(data) } } } < other;
                 }
                 // List and int
-                if (not std::holds_alternative<int_t>(data) and std::holds_alternative<int_t>(other.data)) {
+                if (not std::holds_alternative<int_t>(data) && std::holds_alternative<int_t>(other.data)) {
                     return *this < packet_element{ list_of_elements_t{ { std::get<int_t>(other.data) } } };
                 }
                 return false;

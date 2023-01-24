@@ -17,7 +17,7 @@ namespace aoc_2022::day_6 {
         return marker_size + ranges::distance(buffer
             | ranges::views::sliding(marker_size)
             | ranges::views::take_while([&is_start_marker](auto&& marker) {
-                return not is_start_marker(marker);
+                return !is_start_marker(marker);
             })
         );
     }

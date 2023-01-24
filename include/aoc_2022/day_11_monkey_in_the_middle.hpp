@@ -58,7 +58,7 @@ namespace aoc_2022::day_11 {
             if (std::regex_match(line, matches, pattern)) {
                 auto operation_str{ matches[1].str() };
                 auto operand_str{ matches[2].str() };
-                if (operation_str == "*" and operand_str == "old") {
+                if (operation_str == "*" && operand_str == "old") {
                     m.operation = [](int i) { return i * i; };
                 } else if (operation_str == "*") {
                     m.operation = [operand=stoi(operand_str)](int i) { return i * operand; };

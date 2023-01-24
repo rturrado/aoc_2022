@@ -146,7 +146,7 @@ namespace aoc_2022::day_14 {
                     return get_point_content(p) == point_content::air;
                 };
                 auto point_is_valid = [this](const auto& p) {
-                    return p.x >= 0 and p.x < height_ and p.y >= 0 and p.y < width_;
+                    return p.x >= 0 && p.x < height_ && p.y >= 0 && p.y < width_;
                 };
                 auto step = [&point_is_valid, &point_is_free](const auto& current_point) {
                     if (point next_point_down{ current_point.x + 1, current_point.y };
