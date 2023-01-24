@@ -6,9 +6,6 @@ on:
   pull_request:
     types: [ opened, synchronize, reopened ]
 
-env:
-    BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory  # Directory where build-wrapper output will be placed
-
 jobs:
   unixlike-gcc-debug-tests:
     runs-on: ubuntu-latest
