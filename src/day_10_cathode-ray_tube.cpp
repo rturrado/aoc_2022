@@ -53,7 +53,7 @@ namespace aoc_2022::day_10 {
         auto is_sprite_at = [&sprite_positions](auto cycle) {
             auto sprite_pos{ sprite_positions[cycle] };
             auto pixel_pos{ cycle % 40 };
-            return sprite_pos - 1 <= pixel_pos and pixel_pos <= sprite_pos + 1;
+            return sprite_pos - 1 <= pixel_pos && pixel_pos <= sprite_pos + 1;
         };
         auto crt_rows{ crt
             | ranges::views::transform([cycle=0, &is_sprite_at](char) mutable {

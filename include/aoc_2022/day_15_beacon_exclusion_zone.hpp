@@ -57,10 +57,10 @@ namespace aoc_2022::day_15 {
         int end{};
 
         [[nodiscard]] auto contains(int x) const {
-            return start <= x and x < end;
+            return start <= x && x < end;
         }
         [[nodiscard]] auto contains(const interval& other) const {
-            return start <= other.start and other.end <= end;
+            return start <= other.start && other.end <= end;
         }
         [[nodiscard]] friend auto operator<(const interval& lhs, const interval& rhs) noexcept {
             return lhs.start < rhs.start;

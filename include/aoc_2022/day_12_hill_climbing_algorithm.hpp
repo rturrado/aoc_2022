@@ -32,15 +32,15 @@ namespace aoc_2022::day_12 {
             };
             std::erase_if(ret, [&p, this](const position& next_point_position) {
                 auto& [i, j]{ next_point_position };
-                return i < 0 or j < 0 or i >= height_ or j >= width_;
+                return i < 0 || j < 0 || i >= height_ || j >= width_;
             });
             return ret;
         }
         [[nodiscard]] auto is_valid_movement(const position& from, const position& to, direction d) const {
             auto elevation_from{ points_[get_position_1d(from)] };
             auto elevation_to{ points_[get_position_1d(to)] };
-            return (d == direction::up and elevation_to <= elevation_from + 1)
-                or (d == direction::down and elevation_to >= elevation_from - 1);
+            return (d == direction::up && elevation_to <= elevation_from + 1)
+                || (d == direction::down && elevation_to >= elevation_from - 1);
         }
     public:
         explicit elevation_map(std::istream& is) {
@@ -83,7 +83,7 @@ namespace aoc_2022::day_12 {
                 }
                 for (auto&& next_position : get_next_positions(current_item.pos)) {
                     auto next_position_1d{ get_position_1d(next_position) };
-                    if (not visited[next_position_1d] and is_valid_movement(current_position, next_position, d)) {
+                    if (not visited[next_position_1d] && is_valid_movement(current_position, next_position, d)) {
                         queue.push_back({ next_position, current_distance_from_source + 1 });
                         visited[next_position_1d] = true;
                     }
@@ -112,7 +112,7 @@ namespace aoc_2022::day_12 {
                 }
                 for (auto&& next_position : get_next_positions(current_item.pos)) {
                     auto next_position_1d{ get_position_1d(next_position) };
-                    if (not visited[next_position_1d] and is_valid_movement(current_position, next_position, d)) {
+                    if (not visited[next_position_1d] && is_valid_movement(current_position, next_position, d)) {
                         queue.push_back({ next_position, current_distance_from_source + 1 });
                         visited[next_position_1d] = true;
                     }

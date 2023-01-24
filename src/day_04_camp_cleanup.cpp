@@ -28,8 +28,8 @@ namespace aoc_2022::day_4 {
             auto&& sa_1{ pair_of_section_assignments.first };
             auto&& sa_2{ pair_of_section_assignments.second };
             return
-                ((sa_1.first <= sa_2.first) and (sa_1.last >= sa_2.last)) or
-                ((sa_1.first >= sa_2.first) and (sa_1.last <= sa_2.last));
+                ((sa_1.first <= sa_2.first) && (sa_1.last >= sa_2.last)) ||
+                ((sa_1.first >= sa_2.first) && (sa_1.last <= sa_2.last));
         };
         auto no_of_fully_contained_ranges = ranges::distance(pairs_of_section_assignments
             | ranges::views::transform(parse_pair_of_section_assignments)
@@ -43,8 +43,8 @@ namespace aoc_2022::day_4 {
             auto&& sa_1{ pair_of_section_assignments.first };
             auto&& sa_2{ pair_of_section_assignments.second };
             return not
-                (((sa_1.first < sa_2.first) and (sa_1.last < sa_2.first)) or
-                 ((sa_2.first < sa_1.first) and (sa_2.last < sa_1.first)));
+                (((sa_1.first < sa_2.first) && (sa_1.last < sa_2.first)) ||
+                 ((sa_2.first < sa_1.first) && (sa_2.last < sa_1.first)));
         };
         auto no_of_partially_contained_ranges = ranges::distance(pairs_of_section_assignments
             | ranges::views::transform(parse_pair_of_section_assignments)

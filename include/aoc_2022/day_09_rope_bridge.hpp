@@ -31,7 +31,7 @@ namespace aoc_2022::day_9 {
         friend auto adjacent_positions(const position& p1, const position& p2) {
             auto diff_x{ (p1.x >= p2.x) ? p1.x - p2.x : p2.x - p1.x };
             auto diff_y{ (p1.y >= p2.y) ? p1.y - p2.y : p2.y - p1.y };
-            return diff_x <= 1 and diff_y <= 1;
+            return diff_x <= 1 && diff_y <= 1;
         };
         friend bool operator==(const position& p1, const position& p2) = default;
         friend bool operator!=(const position& p1, const position& p2) = default;
