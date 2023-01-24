@@ -16,9 +16,9 @@ TEST(day_7_part_2, puzzle_example) {
     EXPECT_EQ(part_2(iss), 24933642);
 }
 
-TEST(day_7_main, output) {
+TEST(day_7_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: total sizes = 1491614\n"
         "Part 2: size of smallest directory to free = 6400111\n"

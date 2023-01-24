@@ -48,9 +48,9 @@ TEST(day_6_part_2, puzzle_example_5) {
     EXPECT_EQ(part_2(iss), 26);
 }
 
-TEST(day_6_main, output) {
+TEST(day_6_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: start of packet marker = 1920\n"
         "Part 2: start of message marker = 2334\n"

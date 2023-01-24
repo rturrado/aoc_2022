@@ -21,9 +21,9 @@ TEST(day_9_part_2, puzzle_example_2) {
     EXPECT_EQ(part_2(iss), 36);
 }
 
-TEST(day_9_main, output) {
+TEST(day_9_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: number of visited positions = 6243\n"
         "Part 2: number of visited positions = 2630\n"

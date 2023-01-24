@@ -44,7 +44,7 @@ namespace aoc_2022::day_11 {
         return monkey_business_level;
     }
 
-    void main(std::ostream& os) {
+    void puzzle_main(std::ostream& os) {
         std::ifstream puzzle_input_ifs{ get_puzzle_inputs_folder_path() / "day_11_monkey_in_the_middle.txt" };
         fmt::print(os, "Part 1: monkey business level = {}\n", part_1(puzzle_input_ifs));
     }

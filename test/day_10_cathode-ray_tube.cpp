@@ -26,9 +26,9 @@ TEST(day_10_part_2, puzzle_example) {
     EXPECT_EQ(part_2(iss), expected_output);
 }
 
-TEST(day_10_main, output) {
+TEST(day_10_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     std::string_view part_2_expected_output{
         "###..#.....##..####.#..#..##..####..##..\n"
         "#..#.#....#..#.#....#.#..#..#....#.#..#.\n"

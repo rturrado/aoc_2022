@@ -35,5 +35,5 @@ namespace aoc_2022::day_5 {
 
     std::string part_1(std::istream& puzzle_input_is, queues_t queues);
     std::string part_2(std::istream& puzzle_input_is,  queues_t queues);
-    void main(std::ostream& os);
+    void puzzle_main(std::ostream& os);
 }  // namespace aoc_2022::day_5

@@ -52,7 +52,7 @@ namespace aoc_2022::day_4 {
         return no_of_partially_contained_ranges;
     }
 
-    void main(std::ostream& os) {
+    void puzzle_main(std::ostream& os) {
         std::ifstream puzzle_input_ifs_1{ get_puzzle_inputs_folder_path() / "day_04_camp_cleanup.txt" };
         std::ifstream puzzle_input_ifs_2{ get_puzzle_inputs_folder_path() / "day_04_camp_cleanup.txt" };
         fmt::print(os, "Part 1: number of fully contained ranges = {}\n", part_1(puzzle_input_ifs_1));

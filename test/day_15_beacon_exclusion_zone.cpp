@@ -16,9 +16,9 @@ TEST(day_15_part_2, puzzle_example) {
     EXPECT_EQ(part_2(iss, 20), 56000011);
 }
 
-TEST(day_15_main, output) {
+TEST(day_15_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: number of positions that cannot contain a beacon in row 2'000'000 = 6425133\n"
         "Part 2: tuning frequency = 10996191429555\n"

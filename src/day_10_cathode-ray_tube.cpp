@@ -66,7 +66,7 @@ namespace aoc_2022::day_10 {
         return fmt::format("{}", fmt::join(crt_rows, ""));
     }
 
-    void main(std::ostream& os) {
+    void puzzle_main(std::ostream& os) {
         std::ifstream puzzle_input_ifs_1{ get_puzzle_inputs_folder_path() / "day_10_cathode-ray_tube.txt" };
         std::ifstream puzzle_input_ifs_2{ get_puzzle_inputs_folder_path() / "day_10_cathode-ray_tube.txt" };
         fmt::print(os, "Part 1: sum of signal strengths = {}\n", part_1(puzzle_input_ifs_1));

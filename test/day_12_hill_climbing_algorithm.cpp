@@ -16,9 +16,9 @@ TEST(day_12_part_2, puzzle_example) {
     EXPECT_EQ(part_2(iss), 29);
 }
 
-TEST(day_12_main, output) {
+TEST(day_12_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: fewest steps = 456\n"
         "Part 2: fewest steps = 454\n"

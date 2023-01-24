@@ -4,5 +4,5 @@
 
 
 namespace aoc_2022::day_1 {
-    void main(std::ostream& os);
+    void puzzle_main(std::ostream& os);
 }  // namespace aoc_2022::day_1

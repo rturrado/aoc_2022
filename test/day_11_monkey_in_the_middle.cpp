@@ -11,9 +11,9 @@ TEST(day_11_part_1, puzzle_example) {
     EXPECT_EQ(part_1(iss), 10605);
 }
 
-TEST(day_11_main, output) {
+TEST(day_11_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: monkey business level = 120056\n"
     ));

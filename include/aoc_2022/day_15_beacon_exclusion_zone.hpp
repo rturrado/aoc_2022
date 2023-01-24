@@ -138,5 +138,5 @@ namespace aoc_2022::day_15 {
 
     long part_1(std::istream& puzzle_input_is, int row);
     std::int64_t part_2(std::istream& puzzle_input_is, int distress_area_width);
-    void main(std::ostream& os);
+    void puzzle_main(std::ostream& os);
 }  // namespace aoc_2022::day_15

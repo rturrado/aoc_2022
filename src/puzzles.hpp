@@ -24,7 +24,7 @@
 #undef NDEBUG
 #include <cassert>
 
-using namespace aoc_2022;
+namespace aoc = aoc_2022;
 
 
 class puzzles {
@@ -35,7 +35,7 @@ public:
         static puzzles instance;
         return instance;
     }
-    [[nodiscard]] constexpr size_t size() {
+    [[nodiscard]] constexpr size_t size() const {
         return data_.size();
     }
     void execute(size_t i) {
@@ -47,20 +47,20 @@ private:
     puzzles() = default;
 
     std::vector<function_type> data_{
-        []() { day_1::main(std::cout); },  // calorie counting
-        []() { day_2::main(std::cout); },  // rock, paper, scissors
-        []() { day_3::main(std::cout); },  // rucksack reorganization
-        []() { day_4::main(std::cout); },  // camp cleanup
-        []() { day_5::main(std::cout); },  // supply stacks
-        []() { day_6::main(std::cout); },  // tuning trouble
-        []() { day_7::main(std::cout); },  // no space left on device
-        []() { day_8::main(std::cout); },  // treetop tree house
-        []() { day_9::main(std::cout); },  // rope bridge
-        []() { day_10::main(std::cout); },  // cathode-ray tube
-        []() { day_11::main(std::cout); },  // monkey in the middle
-        []() { day_12::main(std::cout); },  // hill climbing algorithm
-        []() { day_13::main(std::cout); },  // distress signal
-        []() { day_14::main(std::cout); },  // regolith reservoir
-        []() { day_15::main(std::cout); },  // beacon exclusion zone
+        []() { aoc::day_1::puzzle_main(std::cout); },  // calorie counting
+        []() { aoc::day_2::puzzle_main(std::cout); },  // rock, paper, scissors
+        []() { aoc::day_3::puzzle_main(std::cout); },  // rucksack reorganization
+        []() { aoc::day_4::puzzle_main(std::cout); },  // camp cleanup
+        []() { aoc::day_5::puzzle_main(std::cout); },  // supply stacks
+        []() { aoc::day_6::puzzle_main(std::cout); },  // tuning trouble
+        []() { aoc::day_7::puzzle_main(std::cout); },  // no space left on device
+        []() { aoc::day_8::puzzle_main(std::cout); },  // treetop tree house
+        []() { aoc::day_9::puzzle_main(std::cout); },  // rope bridge
+        []() { aoc::day_10::puzzle_main(std::cout); },  // cathode-ray tube
+        []() { aoc::day_11::puzzle_main(std::cout); },  // monkey in the middle
+        []() { aoc::day_12::puzzle_main(std::cout); },  // hill climbing algorithm
+        []() { aoc::day_13::puzzle_main(std::cout); },  // distress signal
+        []() { aoc::day_14::puzzle_main(std::cout); },  // regolith reservoir
+        []() { aoc::day_15::puzzle_main(std::cout); },  // beacon exclusion zone
     };
 };

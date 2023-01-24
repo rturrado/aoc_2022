@@ -16,9 +16,9 @@ TEST(day_3_part_2, puzzle_example) {
     EXPECT_EQ(part_2(iss), 70);
 }
 
-TEST(day_3_main, output) {
+TEST(day_3_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: sum of priorities = 7795\n"
         "Part 2: sum of priorities = 2703\n"

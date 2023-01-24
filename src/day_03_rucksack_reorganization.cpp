@@ -15,18 +15,24 @@ namespace fs = std::filesystem;
 
 
 namespace aoc_2022::day_3 {
+    using rucksack_t = std::string;
+    using rucksacks_t = std::vector<rucksack_t>;
+    using compartment_t = std::string;
+    using compartments_t = std::pair<compartment_t, compartment_t>;
+
     int part_1(std::istream& puzzle_input_is) {
-        std::vector<std::string> rucksacks{ std::istream_iterator<std::string>{ puzzle_input_is }, {} };
-        auto get_compartments = [](auto&& rucksack) {
+        rucksacks_t rucksacks{ std::istream_iterator<std::string>{ puzzle_input_is }, {} };
+
+        auto get_compartments = [](const rucksack_t& rucksack) {
             auto half_size{ rucksack.size() / 2 };
-            return std::pair<std::string, std::string>{
+            return compartments_t{
                 rucksack.substr(0, half_size),
                 rucksack.substr(half_size)
             };
         };
-        auto get_shared_item = [](auto&& compartments) {
-            auto& c1{ compartments.first };
-            auto& c2{ compartments.second };
+        auto get_shared_item = [](compartments_t&& compartments) {
+            auto&& c1{ compartments.first };
+            auto&& c2{ compartments.second };
             std::ranges::sort(c1);
             std::ranges::sort(c2);
             std::set<char> shared_items{};
@@ -47,7 +53,8 @@ namespace aoc_2022::day_3 {
     }
 
     int part_2(std::istream& puzzle_input_is) {
-        std::vector<std::string> rucksacks{ std::istream_iterator<std::string>{ puzzle_input_is }, {} };
+        rucksacks_t rucksacks{ std::istream_iterator<std::string>{ puzzle_input_is }, {} };
+
         auto get_shared_item = [](auto&& rucksack_group) {
             auto&& c1{ rucksack_group[0] };
             auto&& c2{ rucksack_group[1] };
@@ -74,7 +81,7 @@ namespace aoc_2022::day_3 {
         return sum_of_priorities;
     }
 
-    void main(std::ostream& os) {
+    void puzzle_main(std::ostream& os) {
         std::ifstream puzzle_input_ifs_1{ get_puzzle_inputs_folder_path() / "day_03_rucksack_reorganization.txt" };
         std::ifstream puzzle_input_ifs_2{ get_puzzle_inputs_folder_path() / "day_03_rucksack_reorganization.txt" };
         fmt::print(os, "Part 1: sum of priorities = {}\n", part_1(puzzle_input_ifs_1));

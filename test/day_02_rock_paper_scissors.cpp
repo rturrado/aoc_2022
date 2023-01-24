@@ -16,9 +16,9 @@ std::istringstream iss{ puzzle_example_sv.data() };
     EXPECT_EQ(part_2(iss), 12);
 }
 
-TEST(day_2_main, output) {
+TEST(day_2_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: total score = 15632\n"
         "Part 2: total score = 14416\n"

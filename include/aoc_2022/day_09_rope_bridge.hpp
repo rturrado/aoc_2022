@@ -62,5 +62,5 @@ namespace aoc_2022::day_9 {
 
     size_t part_1(std::istream& puzzle_input_is);
     size_t part_2(std::istream& puzzle_input_is);
-    void main(std::ostream& os);
+    void puzzle_main(std::ostream& os);
 }  // namespace aoc_2022::day_9

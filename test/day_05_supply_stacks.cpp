@@ -16,9 +16,9 @@ TEST(day_5_part_2, puzzle_example) {
     EXPECT_EQ(part_2(iss, puzzle_example_queues), "MCD");
 }
 
-TEST(day_5_main, output) {
+TEST(day_5_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: message = QNNTGTPFN\n"
         "Part 2: message = GGNPJBTTR\n"

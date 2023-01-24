@@ -135,5 +135,5 @@ namespace aoc_2022::day_11 {
     };
 
     int part_1(std::istream& puzzle_input_is);
-    void main(std::ostream& os);
+    void puzzle_main(std::ostream& os);
 }  // namespace aoc_2022::day_11

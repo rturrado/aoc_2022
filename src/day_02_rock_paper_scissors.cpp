@@ -29,7 +29,7 @@ namespace aoc_2022::day_2 {
         return total_score;
     }
 
-    void main(std::ostream& os) {
+    void puzzle_main(std::ostream& os) {
         auto puzzle_input_path{ get_puzzle_inputs_folder_path() / "day_02_rock_paper_scissors.txt" };
         std::ifstream puzzle_input_ifs_1{ puzzle_input_path };
         std::ifstream puzzle_input_ifs_2{ puzzle_input_path };

@@ -6,6 +6,7 @@
 #include <fmt/ostream.h>
 #include <numeric>  // accumulate
 #include <string>
+#include <string_view>
 
 namespace fs = std::filesystem;
 
@@ -27,8 +28,8 @@ namespace aoc_2022::day_5 {
             from_queue.resize(from_queue_new_size);
         }
         auto message{ std::accumulate(queues.begin(), queues.end(), std::string{},
-            [](const std::string& message, const std::string& queue) {
-                return message + (queue.empty() ? std::string{} : std::string{ queue.back() });
+            [](const std::string& total, std::string_view queue) {
+                return total + (queue.empty() ? char{} : queue.back());
             }
         )};
         return message;
@@ -49,14 +50,14 @@ namespace aoc_2022::day_5 {
             from_queue.resize(from_queue_new_size);
         }
         auto message{ std::accumulate(queues.begin(), queues.end(), std::string{},
-            [](const std::string& message, const std::string& queue) {
-                return message + (queue.empty() ? std::string{} : std::string{ queue.back() });
+            [](const std::string& total, std::string_view queue) {
+                return total + (queue.empty() ? char{} : queue.back());
             }
         )};
         return message;
     }
 
-    void main(std::ostream& os) {
+    void puzzle_main(std::ostream& os) {
         std::ifstream puzzle_input_ifs_1{ get_puzzle_inputs_folder_path() / "day_05_supply_stacks.txt" };
         std::ifstream puzzle_input_ifs_2{ get_puzzle_inputs_folder_path() / "day_05_supply_stacks.txt" };
         fmt::print(os, "Part 1: message = {}\n", part_1(puzzle_input_ifs_1, puzzle_input_queues));

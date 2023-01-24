@@ -16,9 +16,9 @@ TEST(day_4_part_2, puzzle_example) {
     EXPECT_EQ(part_2(iss), 4);
 }
 
-TEST(day_4_main, output) {
+TEST(day_4_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: number of fully contained ranges = 431\n"
         "Part 2: number of partially contained ranges = 823\n"

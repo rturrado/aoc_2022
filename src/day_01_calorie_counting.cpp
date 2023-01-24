@@ -19,7 +19,7 @@ namespace aoc_2022::day_1 {
         fmt::print(os, "Unimplemented\n");
     }
 
-    void main(std::ostream& os) {
+    void puzzle_main(std::ostream& os) {
         fs::path puzzle_input{ get_puzzle_inputs_folder_path() / "day_01_calorie_counting.txt" };
         part_1(os, puzzle_input);
         part_2(os, puzzle_input);

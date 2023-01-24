@@ -24,7 +24,7 @@ namespace aoc_2022::day_14 {
         return units_of_sand;
     }
 
-    void main(std::ostream& os) {
+    void puzzle_main(std::ostream& os) {
         std::ifstream puzzle_input_ifs_1{ get_puzzle_inputs_folder_path() / "day_14_regolith_reservoir.txt" };
         std::ifstream puzzle_input_ifs_2{ get_puzzle_inputs_folder_path() / "day_14_regolith_reservoir.txt" };
         fmt::print(os, "Part 1: units of sand = {}\n", part_1(puzzle_input_ifs_1));

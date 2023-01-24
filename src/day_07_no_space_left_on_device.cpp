@@ -18,10 +18,10 @@ namespace aoc_2022::day_7 {
         auto current_path = [&current_dir]() {
             return fmt::format("{}", fmt::join(current_dir, ""));
         };
-        auto parse_output_line = [&dirs, &current_dir, &current_path](std::string line) {
-            auto trim_right = [](std::string& text) {
-                text.erase(text.find_last_not_of("\r\n") + 1);
-            };
+        auto trim_right = [](std::string& text) {
+            text.erase(text.find_last_not_of("\r\n") + 1);
+        };
+        auto parse_output_line = [&dirs, &current_dir, &current_path, &trim_right](std::string line) {
             trim_right(line);
             if ((line == "$ ls") or line.starts_with("dir")) {
                 return;
@@ -56,7 +56,7 @@ namespace aoc_2022::day_7 {
         auto dirs{ parse_input(puzzle_input_is) };
         const int max_size{ 100'000 };
         auto total_sizes = std::accumulate(dirs.cbegin(), dirs.cend(), 0,
-            [max_size](int total, const auto& dir_entry) {
+            [&max_size](int total, const auto& dir_entry) {
                 return total + (dir_entry.second <= max_size ? dir_entry.second : 0);
         });
         return total_sizes;
@@ -82,7 +82,7 @@ namespace aoc_2022::day_7 {
         return size_of_smallest_directory_to_free;
     }
 
-    void main(std::ostream& os) {
+    void puzzle_main(std::ostream& os) {
         std::ifstream puzzle_input_ifs_1{ get_puzzle_inputs_folder_path() / "day_07_no_space_left_on_device.txt" };
         std::ifstream puzzle_input_ifs_2{ get_puzzle_inputs_folder_path() / "day_07_no_space_left_on_device.txt" };
         fmt::print(os, "Part 1: total sizes = {}\n", part_1(puzzle_input_ifs_1));

@@ -18,7 +18,8 @@ namespace aoc_2022::day_8 {
         "35390"
     };
 
-    size_t part_1(std::istream& puzzle_input_is);
-    size_t part_2(std::istream& puzzle_input_is);
-    void main(std::ostream& os);
+    void read_forest_rows_and_cols(std::istream& puzzle_input_is, forest_t& rows, forest_t& cols);
+    size_t part_1(const forest_t& rows, const forest_t& cols);
+    size_t part_2(const forest_t& rows, const forest_t& cols);
+    void puzzle_main(std::ostream& os);
 }  // namespace aoc_2022::day_8

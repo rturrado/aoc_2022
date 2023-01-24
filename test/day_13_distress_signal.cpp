@@ -16,9 +16,9 @@ TEST(day_13_part_2, puzzle_example) {
     EXPECT_EQ(part_2(iss), 140);
 }
 
-TEST(day_13_main, output) {
+TEST(day_13_puzzle_main, output) {
     std::ostringstream oss{};
-    main(oss);
+    puzzle_main(oss);
     EXPECT_THAT(oss.str(), ::testing::HasSubstr(
         "Part 1: sum of indices of pairs in right order = 5882\n"
         "Part 2: decoder key = 24948\n"
