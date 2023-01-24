@@ -10,7 +10,7 @@ env:
     BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory  # Directory where build-wrapper output will be placed
 
 jobs:
-  unixlike-gcc-debug-github:
+  unixlike-gcc-debug-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Install gcc-12 and g++-12, and linux-headers
